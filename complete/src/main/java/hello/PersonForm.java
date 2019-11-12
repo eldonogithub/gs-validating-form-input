@@ -1,8 +1,9 @@
 package hello;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import hello.annotation.Range;
 
 public class PersonForm {
 
@@ -11,8 +12,8 @@ public class PersonForm {
     private String name;
 
     @NotNull
-    @Min(18)
-    private Integer age;
+    @Range( min = 18, max = 110)
+    private String age;
 
     public String getName() {
         return this.name;
@@ -22,11 +23,11 @@ public class PersonForm {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
