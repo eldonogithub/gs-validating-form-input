@@ -29,7 +29,8 @@ public class WebController implements WebMvcConfigurer {
 
   @GetMapping("/")
   public String showForm(PersonForm personForm) {
-    return "form.html";
+    log.info("show home page called");
+    return "form";
   }
 
   @PostMapping("/")
@@ -37,9 +38,9 @@ public class WebController implements WebMvcConfigurer {
     log.info("checkPersonInfo handler: " + personForm.getName() );
     
     if (bindingResult.hasErrors()) {
-      return "form.html";
+      return "form";
     }
 
-    return "redirect:/results.html";
+    return "redirect:/results";
   }
 }
