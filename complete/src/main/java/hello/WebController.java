@@ -1,11 +1,9 @@
 package hello;
 
 import javax.validation.Valid;
-import javax.validation.Validator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +17,6 @@ public class WebController implements WebMvcConfigurer {
   private static final Logger log = LogManager.getLogger(WebController.class);
 
 
-  @Autowired
-  private Validator validator;
-
   @Override
   public void addViewControllers(ViewControllerRegistry registry) {
     registry.addViewController("/results").setViewName("results");
@@ -29,7 +24,7 @@ public class WebController implements WebMvcConfigurer {
 
   @GetMapping("/")
   public String showForm(PersonForm personForm) {
-    log.info("show home page called");
+    log.info("show home page called rendering form template");
     return "form";
   }
 
